@@ -25,7 +25,6 @@ export class FormSubmitPage implements OnInit {
     
     const data = {
       nama_kategori : this.nama_kategori,
-      nama_kategoris : this.nama_kategori,
       path_gambar   : this.path_gambar
     };
   
