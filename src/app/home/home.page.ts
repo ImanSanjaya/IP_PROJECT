@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RestserviceService } from '../api/restservice.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,23 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  myData    : any;
+
+  constructor(
+    private service: RestserviceService
+  ) {}
+
+  ngOnInit() {
+    this.loadDataRestApi();
+    // this.myData = JSON.parse(localStorage.getItem('dataTmp'));
+  }
+
+  loadDataRestApi(){
+    this.service.getData().subscribe( (data:any[]) =>{
+      this.myData = data['category'];
+      // console.log('Data Saya ===>'+JSON.stringify(data['category']));
+      localStorage.setItem('dataTmp', JSON.stringify(data['category']));
+    })
+  }
 
 }

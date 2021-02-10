@@ -1,20 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      List Data Category
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list *ngFor="let datas of myData">
+    <ion-item lines="none">
+      <ion-card class="special-card">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+        <b>DATA ID : {{ datas.id_category_outlet }}</b>
+        <hr style="height:2px;color:gray;background-color:gray">
+
+        <b>Isi data : </b><br>        
+        {{ datas.name_category_outlet }}  
+        
+        <br><br>
+
+        <b>Lokasin Gambar : </b><br>        
+        {{ datas.img_path_category_outlet }}  
+
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+<ion-footer no-border>
+  <ion-card expand="block" [routerLink]="'/form-submit'" [routerDirection]="'forward'">
+    <div style="background-color:#1c98ed;text-align: center;">
+      <br>
+      <label style="font-size: small;color: white;"><b>Tambah Data</b></label>
+      <br><br>
+    </div>
+  </ion-card>
+</ion-footer>
